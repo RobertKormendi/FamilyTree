@@ -1,0 +1,21 @@
+Using hard-coded family members in an array in the format (name, name of parent)
+First, assign each person as a child of their parent, making a list of "children" for each person
+For each person, iterate over each person and if the person's name appears as the other person's parent, assign them as a child
+
+Assign each person their generation number, the common ancestor being generation 1
+For each person, start with the generation number at 1, assign the person's parent as the person, and increment the generation number. loop until parent is none (The common ancestor). Then assign the generation number to the person being checked.
+
+Input is 2 strings, parse by separating by spaces. Assign the names as person 1 and person 2.
+iterate over family array looking for the index of the person with each name.
+
+
+Find the common ancestor:
+Using the difference in generation between 2 people, if diff of gen is 1, check if they're parent and child. If so, it's solved. If not, check if person 1's parent is the 
+grandparent of person 2. If not, then continue going up in generations until the common ancestor is found.
+If diff of gen is 2, check if they're grandparent and grandchild etc.
+
+
+Checking relationships:
+To check first thing, find the difference between the generations of person 1 and common ancestor.
+To check how many times remove, find the difference between the generations of person 2 and common ancestor
+
