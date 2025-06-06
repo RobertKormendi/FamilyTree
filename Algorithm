@@ -1,6 +1,10 @@
 Using hard-coded family members in an array in the format (name, name of parent)
-First, assign each person as a child of their parent, making a list of "children" for each person
-For each person, iterate over each person and if the person's name appears as the other person's parent, assign them as a child
+
+First, assign each parent's object as the parent of each person as opposed to just their name, so person.parent returns a person object
+
+
+//First, assign each person as a child of their parent, making a list of "children" for each person
+//For each person, iterate over each person and if the person's name appears as the other person's parent, assign them as a child
 
 Assign each person their generation number, the common ancestor being generation 1
 For each person, start with the generation number at 1, assign the person's parent as the person, and increment the generation number. loop until parent is none (The common ancestor). Then assign the generation number to the person being checked.
