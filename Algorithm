@@ -1,4 +1,4 @@
-Using hard-coded family members in an array in the format (name, name of parent)
+Using hard-coded family members in an array in the format ((str)name, (str)name of parent)
 
 First, assign each parent's object as the parent of each person as opposed to just their name, so person.parent returns a person object
 
@@ -12,7 +12,7 @@ Input is 1 string, 2 names that are comma separated, then separate by commas and
 it does not pass and prompts again for a valid input. 
 If either of the 2 names do not exist in the family tree, prompt for a new input
 Assign the names as person 1 and person 2.
-iterate over family array looking for the object with the name that was input, and assign the Person object as opposed to just using the name.
+Iterate over family array looking for the object with the name that was input, and assign the Person object as opposed to just using the name.
 (this gives access to Person.parent as well without having to check over the entire list)
 
 
@@ -29,10 +29,12 @@ Checking Relationship:
 The first part of the relationship, "xth cousin", is the generation difference between the first person, and the common ancestor.
 The second part, "y times removed", is the generation difference between the second person, and the common ancestor.
 Then, using a library, determine what suffix is needed for each number.
-Since numbers 10-20 noninclusive are special cases, if n modulo 100 is greater than 10 but less than 20. (if the last 2 digits are between 10 and 20).
-Otherwise, check n modulo 10, and get the required value from the library.
+Since numbers 10-20 inclusive are special cases, check if n modulo 100 is greater than 10 but less than 20. (if the last 2 digits are between 10 and 20 assign "th").
+Otherwise, check n modulo 10, and get the required suffix from the library ("st", "nd" or "rd") with a default value of "th".
 
-For the second part, for once. twice, thrice removed, assign them in a library, and get using a default value of "n times"
+For the number of times removed, for once, twice, thrice removed, assign them in a library, and get using a default value of "n times"
+
+If the generation difference for both people between themselves and their common ancestor is 1, then they are siblings.
 
 If they are of the same lineage, I used a list of elifs to determine the printed message based on the difference in their generations. 
 If the difference is positive, then person1 is a descendant of person2, and vice versa.
