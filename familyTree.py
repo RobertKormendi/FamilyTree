@@ -63,7 +63,7 @@ def getInput():
 
     while True:
         error  = False
-        myInput = input("Enter two comma separated names: ").replace(" ", "").split(',') # map input to a list
+        myInput = input("Enter two separate names: ").replace(",", "").split(' ')# map input to a list
         if len(myInput) == 2: #make sure that 2 names were given
             for x in range(len(myInput)):
                 for i in range(len(family)):
@@ -75,7 +75,7 @@ def getInput():
                         error = True 
                         break;
         else:
-            print("make sure they're comma separated")
+            print("make sure they're separated")
             error = True
         if error == False: #only exit the loop if a valid input is given
             break;
@@ -153,7 +153,10 @@ def getRelation(differences):
         elif genDiff == -2:
             return(f" {person1.name} is the grandparent of {person2.name}")
         elif genDiff < -2:
-            return(f"{person1.name} is the {"great " * (genDiff - 2)}grandparent of {person2.name}")            
+            return(f"{person1.name} is the {"great " * (genDiff - 2)}grandparent of {person2.name}")    
+    
+    elif differences == [1, 1]:
+        return(f"{person1.name} and {person2.name} are siblings")
     else:
         cousin = differences[0] #assign how manyth cousin
         timesRemoved = differences[1] #assign how many times removed they are
@@ -170,5 +173,3 @@ while True:
     goAgain = input("Type 'yes' (or anything) to check another pair, or 'no' to exit")
     if goAgain == "no":
         break;
-    
-    
